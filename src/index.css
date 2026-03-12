@@ -1,96 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Amiri:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 30 15% 8%;
+    --foreground: 40 60% 90%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 30 20% 12%;
+    --card-foreground: 40 60% 90%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 30 20% 12%;
+    --popover-foreground: 40 60% 90%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 43 80% 55%;
+    --primary-foreground: 30 15% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 30 25% 18%;
+    --secondary-foreground: 40 60% 90%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 30 15% 15%;
+    --muted-foreground: 35 20% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 15 70% 50%;
+    --accent-foreground: 40 60% 95%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 25% 22%;
+    --input: 35 25% 22%;
+    --ring: 43 80% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    --gold: 43 80% 55%;
+    --gold-light: 43 85% 70%;
+    --gold-dark: 38 75% 40%;
+    --warm-red: 8 65% 45%;
+    --emerald: 160 50% 35%;
+    --deep-blue: 220 50% 25%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --font-display: 'Playfair Display', serif;
+    --font-arabic: 'Amiri', serif;
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --glow-gold: 0 0 40px hsl(43 80% 55% / 0.4), 0 0 80px hsl(43 80% 55% / 0.2);
+    --glow-gold-intense: 0 0 60px hsl(43 80% 55% / 0.6), 0 0 120px hsl(43 80% 55% / 0.3);
   }
 }
 
@@ -101,5 +58,82 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .eid-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-style: italic;
+    color: hsl(var(--gold-light));
+    text-shadow: var(--glow-gold);
+    letter-spacing: 0.04em;
+  }
+
+  .eid-subtitle {
+    font-family: var(--font-arabic);
+    color: hsl(var(--gold));
+    text-shadow: 0 0 20px hsl(var(--gold) / 0.3);
+  }
+
+  .eid-glow-bg {
+    background: radial-gradient(
+      ellipse at center,
+      hsl(var(--gold) / 0.15) 0%,
+      transparent 70%
+    );
+  }
+
+  .eid-reveal-fade {
+    animation: eid-fade-up 1s ease-out forwards;
+  }
+
+  .eid-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: hsl(var(--gold-light));
+    animation: eid-float 3s ease-in-out infinite;
+    box-shadow: 0 0 6px hsl(var(--gold) / 0.6);
+  }
+
+  .hint-text {
+    color: hsl(var(--muted-foreground));
+    font-family: var(--font-display);
+    animation: eid-pulse 2s ease-in-out infinite;
+  }
+}
+
+@keyframes eid-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes eid-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes eid-pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
   }
 }

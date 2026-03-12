@@ -399,12 +399,6 @@ export default function UnfoldingCube({ onAnimationComplete }: UnfoldingCubeProp
       sc.camera.updateProjectionMatrix();
       sc.renderer.setSize(w, h);
     };
-      const w = container.clientWidth;
-      const h = container.clientHeight;
-      s.camera.aspect = w / h;
-      s.camera.updateProjectionMatrix();
-      s.renderer.setSize(w, h);
-    };
     window.addEventListener('resize', handleResize);
 
     // Pointer handlers (desktop + mobile)

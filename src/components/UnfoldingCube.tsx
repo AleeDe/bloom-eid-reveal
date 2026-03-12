@@ -391,9 +391,14 @@ export default function UnfoldingCube({ onAnimationComplete }: UnfoldingCubeProp
 
     // Resize handler
     const handleResize = () => {
-      if (!s) return;
-      const s = sceneRef.current;
-      if (!s || !container) return;
+      const sc = sceneRef.current;
+      if (!sc || !container) return;
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+      sc.camera.aspect = w / h;
+      sc.camera.updateProjectionMatrix();
+      sc.renderer.setSize(w, h);
+    };
       const w = container.clientWidth;
       const h = container.clientHeight;
       s.camera.aspect = w / h;
